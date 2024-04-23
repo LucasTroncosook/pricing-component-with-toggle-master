@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    /* Primary */
+    --Linear-Gradient: hsl(236, 72%, 79%), hsl(237, 63%, 64%);
+
+    /* Neutral */
+    --Very-Light-Grayish-Blue: hsl(240, 78%, 98%);
+    --Light-Grayish-Blue: hsl(234, 14%, 74%);
+    --Grayish-Blue: hsl(233, 13%, 49%);
+    --Dark-Grayish-Blue: hsl(232, 13%, 33%);
+
+    /* Font */
+    --Montserrat:'Montserrat';
+}
+body{
+    background-color: var(--Very-Light-Grayish-Blue);
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/bg-top.svg'), url('../images/bg-bottom.svg');
+    background-position: top right, bottom -200px left;
+    background-repeat: no-repeat;
+    font-family: var(--Montserrat);
+    & .main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        gap: 50px;
+        & .header{
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+            & h1{
+                color: var(--Grayish-Blue);
+                font-size: 1.7rem;
+            }
+            & nav{
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                & span{
+                    color: var(--Light-Grayish-Blue);
+                    font-size: .8rem;
+                    font-weight: bold;
+                }
+                & input[type="checkbox"] {
+                    display: none;
+                }
+                & label {
+                    display: inline-block;
+                    width: 45px;
+                    height: 25px;
+                    background-color: #ccc;
+                    border-radius: 15px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+                }
+                & label::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 5px;
+                    width: 18px;
+                    height: 18px;
+                    background-color: white;
+                    border-radius: 50%;
+                    transition: left 0.3s;
+                }  
+                & input[type="checkbox"]:checked + label::before {
+                    left: calc(100% - 22px);
+                }  
+                & input[type="checkbox"]:checked + label {
+                    background-image: linear-gradient(to right, var(--Linear-Gradient));
+                }
+                  
+            }
+        }
+        & .container-cards{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            row-gap: 20px;
+            flex-wrap: wrap;
+            & .card{
+                width: 100%;
+                max-width: 340px;
+                min-width: 280px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                height: auto;
+                background-color: var(--Very-Light-Grayish-Blue);
+                border-radius: 5px;
+                gap: 30px;
+                position: relative;
+                box-shadow: 0px 8px 10px 0px var(--Light-Grayish-Blue);
+                & .card-plan{
+                    margin-top: 30px;
+                    color: var(--Grayish-Blue);
+                    font-size: 1rem;
+                }
+                & .card-price{
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    font-weight: bold;
+                    color: var(--Dark-Grayish-Blue);
+                    & span{
+                        font-size: 1.5rem;
+                    }
+                    & h2{
+                        font-size: 2.85rem;
+                    }
+                }
+                & .card-plan-data{
+                    width: 80%;
+                    margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    & span{
+                        padding: 15px 0;
+                        width: 100%;
+                        text-align: center;
+                        border-top: 1px solid var(--Light-Grayish-Blue);
+                        border-bottom: 1px solid var(--Light-Grayish-Blue);
+                        font-weight: bold;
+                        font-size: .8rem;
+                        &:nth-child(2){
+                            border: none;
+                        }
+                    }
+                }
+                & button{
+                    width: 80%;
+                    height: 35px;
+                    border: none;
+                    border-radius: 5px;
+                    background-image: linear-gradient(to right, var(--Linear-Gradient));
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    font-size: .75rem;
+                    letter-spacing: 1px;
+                    color: var(--Very-Light-Grayish-Blue);
+                    margin-bottom: 30px;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: transparent;
+                        border: 1px solid var(--Grayish-Blue);
+                        border-radius: 5px;
+                        background-image: none;
+                        color: var(--Grayish-Blue);
+                    }
+                }
+            }
+            & .card:first-child{
+                left: 10px;
+            }
+            & .card:nth-child(2){
+                background-image: linear-gradient(to right, var(--Linear-Gradient));
+                color: var(--Very-Light-Grayish-Blue);
+                z-index: 20;
+                & .card-plan{
+                    margin-top: 60px;
+                    color: var(--Very-Light-Grayish-Blue);
+                }
+                & .card-price{
+                    color: var(--Very-Light-Grayish-Blue);
+                }
+                & button{
+                    background-image: none;
+                    background-color: var(--Very-Light-Grayish-Blue);
+                    color: var(--Grayish-Blue);
+                    margin-bottom: 60px;
+                    &:hover{
+                        background-color: transparent;
+                        border-color: var(--Very-Light-Grayish-Blue);
+                        color: var(--Very-Light-Grayish-Blue);
+                    }
+                }
+            }
+            & .card:last-child{
+                right: 10px;
+            }
+
+            @media(width <= 680px){
+                &{
+                    & .card:first-child{
+                        left: 0px;
+                    }
+                    & .card:last-child{
+                        right: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
